@@ -1,0 +1,9 @@
+if 5 == 5 || 1 == 1 {
+ print "(5 == 5 || 1 == 1) is true"
+}
+
+if 1 > 5 || 1 > 1 {
+  print "You shouldn't see this!"
+} else {
+  print "(1 > 5 || 1 > 1) is false"
+}

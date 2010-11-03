@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+require File.expand_path(File.join(File.dirname(__FILE__), "../", "parser", "parser.rb"))
+require File.expand_path(File.join(File.dirname(__FILE__), "../", "runtime", "runtime.rb"))
+require "readline"
+
+def eval(code)
+  Parser.new.parse(code).eval(Runtime).ruby_value
+end
+
+# If a file is given we eval it.
+if file = ARGV.first
+  eval File.read(file)
+
+# Start the REPL, read-eval-print-loop, or interactive interpreter
+else
+  puts "Sandbox REPL, CTRL+C to quit"
+  loop do
+    line = Readline::readline(">> ")
+    Readline::HISTORY.push(line)
+    puts "=> #{eval(line).inspect}"
+  end
+  
+end

@@ -1,0 +1,5 @@
+print "(2 + 5) * 2 should be equal to 14"
+print (2 + 5) * 2
+
+print "2 + 5 * 2 should be equal to 12"
+print(2 + 5 * 2)

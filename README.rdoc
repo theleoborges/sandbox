@@ -1,0 +1,46 @@
+= Sandbox, the programming language
+
+Again out of boredom I turned to a subject that has always intrigued me: programming languages and what goes on under the hood.
+
+Sandbox is an interpreted object-oriented toy programming language in its very early days. It's implemented in ruby so don't expect speed or optimisations. In fact, the name Sandbox should tell you what the language is all about. It's a playground to experiment different implementation techniques.
+
+It mostly borrows its syntax from ruby, allowing you to skip parenthesis when calling methods - but uses curly braces for blocks of code, as you can see in this Fibonacci implementation:
+
+  func fib(n) {
+    if n == 0 || n == 1 {
+      return n
+    }
+    if n > 1 {
+      return fib(n-1) + fib(n-2)
+    }
+  }
+  print fib(10)
+
+I encourage you to play around with it and contribute if you feel like it. Language design is a rewarding effort!
+
+=== Using Sandbox
+
+Once you clone the repository, you can start by playing around with the sample files under the samples directory, like so:
+  
+  #given you're in the sandbox ROOT directory
+  $bin/sandbox samples/fib.box
+
+From there, just modify the samples, break them, see what's wrong, fix it and have fun :)
+
+=== Modifying Sandbox
+
+If you change anything related to the language's grammar and/or lexer you'll have to regenerate the parser. This can be done running the build script unde the bin directory:
+
+  $bin/build.sh
+
+=== Dependencies
+
+- {racc}[http://github.com/tenderlove/racc]
+- {rexical}[http://github.com/tenderlove/rexical]
+
+=== Resources
+
+- {Create your own programming language}[http://createyourproglang.com/] - Great book. Provided the foundation code on which this project is built.
+- {Modern Compiler Implementation in Java}[http://www.amazon.com/Modern-Compiler-Implementation-Andrew-Appel/dp/0521583888] - Some hardcore theory doesn't hurt
+
+Copyright (c) 2010 {Leonardo Borges}[http://www.leonardoborges.com], released under the MIT license

@@ -1,0 +1,3 @@
+s = "test1"
+print s.length
+print s.length()
